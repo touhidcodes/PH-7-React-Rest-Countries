@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Country from "../Country/Country";
+import "./Countries.css";
 
 const Countries = () => {
 	const [countries, setCountries] = useState([]);
@@ -12,16 +13,11 @@ const Countries = () => {
 			.then((data) => setCountries(data));
 	}, []);
 	return (
-		<div>
+		<div className='countries'>
 			<h1>React Rest Countries</h1>
 			<h4>Available Countries: {countries.length}</h4>
 			{countries.map((country) => (
-				<Country
-					name={country.name.common}
-					flag={country.flags.png}
-					capital={country.capital}
-					population={country.population}
-				></Country>
+				<Country country={country}></Country>
 			))}
 		</div>
 	);
