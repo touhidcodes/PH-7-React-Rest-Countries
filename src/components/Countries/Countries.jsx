@@ -13,12 +13,14 @@ const Countries = () => {
 			.then((data) => setCountries(data));
 	}, []);
 	return (
-		<div className='countries'>
+		<div>
 			<h1>React Rest Countries</h1>
 			<h4>Available Countries: {countries.length}</h4>
-			{countries.map((country) => (
-				<Country country={country}></Country>
-			))}
+			<div className='countries'>
+				{countries.map((country) => (
+					<Country country={country} key={country.cca3}></Country>
+				))}
+			</div>
 		</div>
 	);
 };
